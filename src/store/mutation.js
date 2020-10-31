@@ -10,6 +10,10 @@ const mutations = {
         state.token = token
         //存入localStorage
         localStorage.setItem('Authorization',token)
+    },
+    //设置关键字
+    [types.SET_KEY_WORD](state,keyword){
+        state.keyword = keyword
     }
 }
 export default mutations

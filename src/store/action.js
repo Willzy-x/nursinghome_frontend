@@ -10,3 +10,7 @@ export const setUser = function({commit},user){
 export const setToken = function ({commit},token) {
     commit(types.SET_TOKEN,token)
 }
+//设置关键字
+export const setKeyword = function ({commit},keyword) {
+    commit(types.SET_KEY_WORD,keyword)
+}

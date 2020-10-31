@@ -3,7 +3,7 @@
         <el-menu
                 :default-active="active"
                 class="el-menu-vertical"
-                background-color="black"
+                background-color="transparent"
                 text-color="#545c64"
                 active-text-color="white"
                 @select="handleSelect"
@@ -13,23 +13,23 @@
                 <span slot="title">首页</span>
             </el-menu-item>
             <el-menu-item index="2">
-                <i class="el-icon-menu"></i>
+                <i class="el-icon-s-custom"></i>
                 <span slot="title">人员管理</span>
             </el-menu-item>
             <el-menu-item index="3">
-                <i class="el-icon-menu"></i>
+                <i class="el-icon-place"></i>
                 <span slot="title">床位管理</span>
             </el-menu-item>
             <el-menu-item index="4">
-                <i class="el-icon-menu"></i>
+                <i class="el-icon-food"></i>
                 <span slot="title">膳食管理</span>
             </el-menu-item>
             <el-menu-item index="5">
-                <i class="el-icon-menu"></i>
+                <i class="el-icon-position"></i>
                 <span slot="title">外出管理</span>
             </el-menu-item>
             <el-menu-item index="6">
-            <i class="el-icon-menu"></i>
+            <i class="el-icon-discount"></i>
             <span slot="title">护理管理</span>
             </el-menu-item>
         </el-menu>
@@ -57,7 +57,7 @@
                         this.$router.push('/')
                         break;
                     case '4': //膳食管理
-                        this.$router.push('/')
+                        this.$router.push('/meal')
                         break;
                     case '5': //外出管理
                         this.$router.push("/")
