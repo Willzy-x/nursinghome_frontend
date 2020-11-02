@@ -4,7 +4,9 @@ import Main from '../components/main/Main'
 import Login from '../components/login/Login'
 import Meal from "../components/meal/Meal"
 import Index from "../components/Index/Index"
-
+import Bed from "../components/bed/Bed"
+import BedAdd from "../components/bed/BedAdd"
+import BedSelect from "../components/bed/BedSelect"
 Vue.use(Router)
 //创建路由对象
 const router = new Router({
@@ -25,6 +27,18 @@ const router = new Router({
                 {
                     path: '/meal',
                     component: Meal
+                },
+                {
+                    path:'/bed',
+                    component:Bed
+                },
+                {
+                    path:'/bedAdd',
+                    component:BedAdd
+                },
+                {
+                    path:'/bedSelect',
+                    component:BedSelect
                 }
             ]
         }

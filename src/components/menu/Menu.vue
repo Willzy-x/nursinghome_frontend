@@ -54,7 +54,7 @@
                         this.$router.push("/")
                         break;
                     case '3': //床位管理
-                        this.$router.push('/')
+                        this.$router.push('/bed')
                         break;
                     case '4': //膳食管理
                         this.$router.push('/meal')
