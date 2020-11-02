@@ -14,23 +14,27 @@
             </el-menu-item>
             <el-menu-item index="2">
                 <i class="el-icon-s-custom"></i>
-                <span slot="title">人员管理</span>
+                <span slot="title">入住管理</span>
             </el-menu-item>
             <el-menu-item index="3">
+                <i class="el-icon-s-custom"></i>
+                <span slot="title">出住管理</span>
+            </el-menu-item>
+            <el-menu-item index="4">
                 <i class="el-icon-place"></i>
                 <span slot="title">床位管理</span>
             </el-menu-item>
-            <el-menu-item index="4">
+            <el-menu-item index="5">
                 <i class="el-icon-food"></i>
                 <span slot="title">膳食管理</span>
             </el-menu-item>
-            <el-menu-item index="5">
+            <el-menu-item index="6">
                 <i class="el-icon-position"></i>
                 <span slot="title">外出管理</span>
             </el-menu-item>
-            <el-menu-item index="6">
-            <i class="el-icon-discount"></i>
-            <span slot="title">护理管理</span>
+            <el-menu-item index="7">
+                <i class="el-icon-discount"></i>
+                <span slot="title">护理管理</span>
             </el-menu-item>
         </el-menu>
     </div>
@@ -51,10 +55,10 @@
                         this.$router.push("/")
                         break;
                     case '2': //人员管理
-                        this.$router.push("/")
+                        this.$router.push("/checkin")
                         break;
                     case '3': //床位管理
-                        this.$router.push('/')
+                        this.$router.push('/checkout')
                         break;
                     case '4': //膳食管理
                         this.$router.push('/meal')
