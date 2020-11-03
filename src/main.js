@@ -9,6 +9,9 @@ import 'element-ui/lib/theme-chalk/index.css';
 import store from './store'
 import axios from 'axios';
 
+//jquery
+import $ from 'jquery'
+
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 

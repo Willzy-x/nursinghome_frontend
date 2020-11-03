@@ -2,8 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Main from '../components/main/Main'
 import Login from '../components/login/Login'
-import Meal from "../components/meal/Meal"
 import Index from "../components/Index/Index"
+import MealUpload from "../components/meal/MealUpload";
+import MealDownload from "../components/meal/MealDownload";
 
 Vue.use(Router)
 //创建路由对象
@@ -23,8 +24,12 @@ const router = new Router({
             //配置子路由
             children: [
                 {
-                    path: '/meal',
-                    component: Meal
+                    path: '/mealUpload',
+                    component: MealUpload
+                },
+                {
+                    path: '/mealDownload',
+                    component: MealDownload
                 }
             ]
         }

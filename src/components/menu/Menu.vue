@@ -20,10 +20,16 @@
                 <i class="el-icon-place"></i>
                 <span slot="title">床位管理</span>
             </el-menu-item>
-            <el-menu-item index="4">
-                <i class="el-icon-food"></i>
-                <span slot="title">膳食管理</span>
-            </el-menu-item>
+            <el-submenu index="4">
+                <template slot="title">
+                    <i class="el-icon-food"></i>
+                    <span>膳食管理</span>
+                </template>
+                <el-menu-item-group>
+                    <el-menu-item index="4-1" ><i class="el-icon-upload"></i>食谱上传</el-menu-item>
+                    <el-menu-item index="4-2" ><i class="el-icon-download"></i>食谱下载</el-menu-item>
+                </el-menu-item-group>
+            </el-submenu>
             <el-menu-item index="5">
                 <i class="el-icon-position"></i>
                 <span slot="title">外出管理</span>
@@ -56,8 +62,11 @@
                     case '3': //床位管理
                         this.$router.push('/')
                         break;
-                    case '4': //膳食管理
-                        this.$router.push('/meal')
+                    case '4-1': //食谱上传
+                        this.$router.push('/mealUpload')
+                        break;
+                    case '4-2': //食谱下载
+                        this.$router.push('/mealDownload')
                         break;
                     case '5': //外出管理
                         this.$router.push("/")
