@@ -4,6 +4,8 @@ import Main from '../components/main/Main'
 import Login from '../components/login/Login'
 import Meal from "../components/meal/Meal"
 import Index from "../components/Index/Index"
+import MealUpload from "../components/meal/MealUpload";
+import MealDownload from "../components/meal/MealDownload";
 import CheckIn from "../components/check/CheckIn";
 import CheckOut from "../components/check/CheckOut";
 
@@ -35,6 +37,15 @@ const router = new Router({
                 {
                     path: '/checkout',
                     component: CheckOut
+                },
+
+                {
+                    path: '/mealUpload',
+                    component: MealUpload
+                },
+                {
+                    path: '/mealDownload',
+                    component: MealDownload
                 }
             ]
         }
