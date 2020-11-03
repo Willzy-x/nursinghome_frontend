@@ -69,7 +69,7 @@
                         this.$router.push("/checkout")
                         break;
                     case '3': //床位管理
-                        this.$router.push('/')
+                        this.$router.push('/bed')
                         break;
                     case '4-1': //食谱上传
                         this.$router.push('/mealUpload')
