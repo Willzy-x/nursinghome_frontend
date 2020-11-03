@@ -10,7 +10,7 @@
                     <el-option label="空闲" value="空闲"></el-option>
                     <el-option label="占用" value="占用"></el-option>
                 </el-select>
-                <el-button style="margin-left:10px" type="primary" @click="submitStatus('ruleForm')">按状态搜索</el-button>
+                <el-button style="margin-left:10px" type="success" @click="submitStatus('ruleForm')">按状态搜索</el-button>
             </el-form-item>
             <el-form-item>
                 <el-button @click="resetForm('ruleForm')">重置</el-button>
@@ -105,7 +105,8 @@
                     id:'',
                     bed_status:''
                 },
-                formLabelWidth: '120px'
+                formLabelWidth: '120px',
+                selectFlag: 0
             }
         },
 /*        created(){
@@ -129,19 +130,27 @@
                         })
                         console.log(this.ruleForm)
                         this.$message.success("查询成功")
+                        this.selectFlag=1
                     }
                 });
             },
             handleEdit(id) {
                 this.currId=id,
-                    this.dialogFormVisible=true
+                this.dialogFormVisible=true
             },
             handleDelete(id){
                 let url=`http://localhost:8081/bed/delBed/${id}`
                 axios.get(url).then()
                 //this.getData()
                 //this.getData()
-                this.refresh('ruleForm')
+                if(this.selectFlag===0){
+                    this.refreshById('ruleForm')
+                    this.refreshById('ruleForm')
+                }
+                else if(this.selectFlag===1){
+                    this.refreshByStatus('ruleForm')
+                    this.refreshByStatus('ruleForm')
+                }
                 console.log(id)
             },
             updateBed(bed_status){
@@ -157,7 +166,13 @@
                 this.getData()
                 this.$message.info('修改成功!');
                 this.dialogFormVisible=false
-                this.refresh('ruleForm')
+                if(this.selectFlag===0){
+                    this.refreshById('ruleForm')
+                    //this.refreshById('ruleForm')
+                }
+                else if(this.selectFlag===1){
+                    this.refreshByStatus('ruleForm')
+                }
             },
             submitForm(formName) {
                 this.$refs[formName].validate((valid) => {
@@ -171,15 +186,32 @@
                         })
                         console.log(this.ruleForm)
                         this.$message.success("查询成功")
+                        this.selectFlag=0
                         //this.resetForm(formName)
                     }
                 });
             },
-            refresh(formName) {
+            refreshById(formName) {
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
                         console.log(formName)
                         let url=`http://localhost:8081/bed/selectBedById/${this.ruleForm.id}`
+                        axios.get(url).then((res)=>{
+                            console.log(res.data)
+                            this.bedList=res.data
+                            console.log(this.bedList)
+                        })
+                        console.log(this.ruleForm)
+                        //this.$message.success("查询成功")
+                        //this.resetForm(formName)
+                    }
+                });
+            },
+            refreshByStatus(formName) {
+                this.$refs[formName].validate((valid) => {
+                    if (valid) {
+                        console.log(formName)
+                        let url=`http://localhost:8081/bed/selectBedByStatus/${this.ruleForm.bed_status}`
                         axios.get(url).then((res)=>{
                             console.log(res.data)
                             this.bedList=res.data
@@ -200,11 +232,11 @@
                 //重新获取数据
                 let url=`http://localhost:8081/bed/query/${this.currPage}`
                 //从后台获取数据
-                axios.get(url).then((res)=>{
+                axios.get(url).then(/*(res)=>{
                     console.log(res.data)
-                    this.pageInfo=res.data
+                    //this.pageInfo=res.data
                     this.loading=false
-                })
+                }*/this.loading=false)
             }
 
         }
