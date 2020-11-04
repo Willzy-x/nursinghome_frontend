@@ -65,7 +65,7 @@
                     case '2-1': //入住管理
                         this.$router.push("/checkin")
                         break;
-                    case '2-1': //入住管理
+                    case '2-2': //出住管理
                         this.$router.push("/checkout")
                         break;
                     case '3': //床位管理

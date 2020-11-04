@@ -155,8 +155,28 @@
             };
         },
         methods: {
+            async checkBedInfo() {
+                let res = false;
+                let url = `http://localhost:8081/bed/selectBedById/${this.checkInEntry.bedId}`;
+                await this.$ajax.get(url).then(resp => {
+                    console.log("bed: " + typeof resp.data[0].bed_status);
+                    if (resp.data[0].bed_status === "0") {
+                        console.log("empty bed");
+                        res = true;
+                    }
+                }).catch(error => {
+                    console.log(error);
+                })
+                return res;
+            },
+
             async submitCheckInEntry() {
                 // TODO: 添加查询床位是否空闲的逻辑
+                let res = await this.checkBedInfo();
+                if (!res) {
+                    this.$message.error("床位不为空，请重新选择床位编号！");
+                    return;
+                }
 
                 let url = "http://localhost:8081/checkin/checkin_entry?";
                 this.checkInEntry.checkInDate = moment().format('YYYY/MM/DD');

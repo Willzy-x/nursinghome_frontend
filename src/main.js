@@ -10,6 +10,7 @@ import store from './store'
 import axios from 'axios';
 
 //jquery
+// eslint-disable-next-line no-unused-vars
 import $ from 'jquery'
 
 Vue.config.productionTip = false
@@ -30,6 +31,7 @@ axios.interceptors.request.use(
     })
 
 Vue.prototype.$ajax = axios
+Vue.config.silent = true
 
 new Vue({
     store,

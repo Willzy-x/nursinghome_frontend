@@ -63,6 +63,7 @@
             //获取文件
             listFile() {
                 let that = this;
+                // eslint-disable-next-line no-undef
                 $.post('http://localhost:8081/file/listFile', {}, function (obj) {
                     that.fileList = obj;
                     console.log(that.fileList)
